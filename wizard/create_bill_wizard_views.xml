@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="create_bill_wizard_form" model="ir.ui.view">
+            <field name="name">create.bill.wizard.form</field>
+            <field name="model">bill.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="journal_id"/>
+                            </group>
+                            <group>
+                                <field name="bill_date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Create" name="action_create_bill" type="object" class="btn-primary"/>
+                        <button string="Discard" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

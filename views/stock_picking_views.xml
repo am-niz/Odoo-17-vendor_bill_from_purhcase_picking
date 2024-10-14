@@ -1,0 +1,25 @@
+<odoo>
+  <data>
+    <record id="view_picking_form_bill" model="ir.ui.view">
+      <field name="name">view.picking.form.inherit.bill</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//header/button[@name='355']" position="after">
+          <button name="action_create_bill" invisible="state != 'done' or picking_type_code != 'incoming'" string="Create Bill" type="object" class="oe_highlight"/>
+        </xpath>
+        <xpath expr="//sheet/div[@name='button_box']/button[@name='action_detailed_operations']" position="after">
+          <button name="action_view_pick_bill" type="object" class="oe_stat_button" icon="fa-star" invisible="bill_count == 0">
+            <div class="o_stat_info">
+              <field name="bill_count" class="o_stat_value"/>
+              <span class="o_stat_text">Bills</span>
+            </div>
+          </button>
+        </xpath>
+        <xpath expr="//sheet/group[1]/group[2]/field[@name='origin']" position="after">
+          <field name="bill_ref" invisible="state != 'done' or picking_type_code != 'incoming'"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
